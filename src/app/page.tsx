@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SectionDivider from "@/components/SectionDivider";
 import HeroSection from "@/components/sections/HeroSection";
 import PainPointsSection from "@/components/sections/PainPointsSection";
 import SolutionSection from "@/components/sections/SolutionSection";
@@ -15,13 +16,21 @@ export default function Home() {
     <main className="bg-[var(--bg-primary)] text-white overflow-x-hidden">
       <Header />
       <HeroSection />
+      <SectionDivider />
       <PainPointsSection />
+      <SectionDivider />
       <SolutionSection />
+      <SectionDivider />
       <CSideSection />
+      <SectionDivider />
       <AICapabilitiesSection />
+      <SectionDivider />
       <BSideSection />
+      <SectionDivider />
       <StatsSection />
+      <SectionDivider />
       <CaseStudySection />
+      <SectionDivider />
       <FinalCTASection />
       <Footer />
     </main>

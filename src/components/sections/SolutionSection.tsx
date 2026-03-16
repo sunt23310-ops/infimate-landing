@@ -9,7 +9,7 @@ const solutions = [
 
 export default function SolutionSection() {
   return (
-    <section id="solutions" className="w-full bg-[var(--bg-primary)] px-[120px] py-[100px] flex flex-col items-center gap-14">
+    <section id="solutions" className="w-full bg-[var(--bg-primary)] px-[120px] py-[140px] flex flex-col items-center gap-14">
       <Badge text="OUR SOLUTION" />
       <h2 className="text-[40px] font-bold text-white text-center">Infimate — 人设化 AI Agent 解决方案</h2>
       <p className="text-lg text-[var(--text-secondary)] text-center max-w-[800px] leading-relaxed">

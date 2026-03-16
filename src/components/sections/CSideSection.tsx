@@ -10,7 +10,7 @@ const features = [
 
 export default function CSideSection() {
   return (
-    <section id="products" className="w-full bg-[var(--bg-secondary)] px-[120px] py-[100px] flex items-center gap-20">
+    <section id="products" className="w-full bg-[var(--bg-secondary)] px-[120px] py-[140px] flex items-center gap-20">
       {/* Left content */}
       <div className="flex flex-col gap-10 w-[520px]">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--purple-bg)] border border-[var(--purple-border)] self-start">

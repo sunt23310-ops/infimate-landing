@@ -10,7 +10,7 @@ const painPoints = [
 
 export default function PainPointsSection() {
   return (
-    <section className="w-full bg-[var(--bg-secondary)] px-[120px] py-[100px] flex flex-col items-center gap-14">
+    <section className="w-full bg-[var(--bg-secondary)] px-[120px] py-[140px] flex flex-col items-center gap-14">
       <Badge text="INDUSTRY CHALLENGES" />
       <h2 className="text-[40px] font-bold text-white text-center">直播电商正面临前所未有的挑战</h2>
       <div className="w-full grid grid-cols-4 gap-5">

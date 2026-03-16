@@ -8,7 +8,7 @@ const results = [
 
 export default function CaseStudySection() {
   return (
-    <section id="cases" className="w-full bg-[var(--bg-primary)] px-[120px] py-[100px] flex flex-col items-center gap-14">
+    <section id="cases" className="w-full bg-[var(--bg-primary)] px-[120px] py-[140px] flex flex-col items-center gap-14">
       <Badge text="CASE STUDY" />
       <h2 className="text-[40px] font-bold text-white text-center">头部客户信赖之选</h2>
 

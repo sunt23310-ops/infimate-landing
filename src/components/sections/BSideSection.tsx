@@ -17,7 +17,7 @@ const bFeatures = [
 
 export default function BSideSection() {
   return (
-    <section className="w-full bg-[var(--bg-secondary)] px-[120px] py-[100px] flex flex-col items-center gap-14">
+    <section className="w-full bg-[var(--bg-secondary)] px-[120px] py-[140px] flex flex-col items-center gap-14">
       <Badge text="MANAGEMENT PLATFORM" />
       <h2 className="text-[40px] font-bold text-white text-center">运营侧 — 全方位掌控数字员工</h2>
       <p className="text-lg text-[var(--text-secondary)] text-center max-w-[700px] leading-relaxed">
