@@ -42,9 +42,7 @@ export default function BSideSection() {
       {/* AI capabilities - horizontal alternating cards with real images */}
       <div className="w-full flex flex-col items-center gap-10 mt-8">
         <div className="flex flex-col items-center gap-3">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--purple-bg)] border border-[var(--purple-border)]">
-            <span className="font-inter text-xs font-semibold text-[var(--purple-primary)] tracking-wider">AI-POWERED CAPABILITIES</span>
-          </div>
+          <Badge text="AI-POWERED CAPABILITIES" />
           <h3 className="text-4xl font-bold text-white">AI 赋能运营全链路</h3>
         </div>
         <div className="w-full flex flex-col gap-5">

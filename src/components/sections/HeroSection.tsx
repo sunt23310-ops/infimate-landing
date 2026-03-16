@@ -21,9 +21,9 @@ export default function HeroSection() {
       <div className="flex items-center h-full px-[120px]">
         {/* Left content */}
         <div className="flex flex-col gap-8 w-[620px] relative z-10">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[rgba(184,134,248,0.08)] border border-[rgba(184,134,248,0.16)] self-start">
-            <span className="w-2 h-2 rounded-full bg-[var(--purple-primary)]" />
-            <span className="font-inter text-[13px] font-medium text-[var(--purple-primary)]">AI 驱动的直播电商革命</span>
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--purple-bg)] border border-[var(--purple-border)] self-start">
+            <span className="w-1.5 h-1.5 rounded-full bg-[var(--purple-primary)]" />
+            <span className="font-inter text-xs font-semibold text-[var(--purple-primary)] tracking-wider">AI 驱动的直播电商革命</span>
           </div>
           <div className="flex flex-col gap-2">
             <h1 className="text-[52px] font-bold text-white leading-tight">让每一位主播，拥有</h1>

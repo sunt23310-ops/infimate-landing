@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Badge from "../Badge";
 
 const features = [
   "多模态沟通 — 文字/语音/图片/小程序卡片",
@@ -13,10 +14,7 @@ export default function CSideSection() {
     <section id="products" className="w-full bg-[var(--bg-secondary)] px-[120px] py-[140px] flex items-center gap-20">
       {/* Left content */}
       <div className="flex flex-col gap-10 w-[520px]">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--purple-bg)] border border-[var(--purple-border)] self-start">
-          <span className="w-1.5 h-1.5 rounded-full bg-[var(--purple-primary)]" />
-          <span className="font-inter text-xs font-semibold text-[var(--purple-primary)] tracking-wider">USER EXPERIENCE</span>
-        </div>
+        <Badge text="USER EXPERIENCE" />
         <h2 className="text-4xl font-bold text-white">用户侧 — 像真人主播一样对话</h2>
         <p className="text-base text-[var(--text-secondary)] leading-relaxed">
           AI 数字员工支持文字、语音、图片等多模态互动，为用户提供真实的主播对话体验
