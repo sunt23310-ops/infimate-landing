@@ -1,11 +1,15 @@
+"use client";
 import Image from "next/image";
 import GradientButton from "../GradientButton";
+import { useInView } from "@/hooks/useInView";
 
 export default function HeroSection() {
+  const { ref, isVisible } = useInView();
+
   return (
     <section className="relative w-full h-[700px] bg-[var(--bg-primary)] overflow-hidden">
       {/* Tech background image */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 hero-float">
         <Image src="/images/hero-tech-bg.png" alt="" fill className="object-cover opacity-[0.45]" priority />
       </div>
 
@@ -20,7 +24,7 @@ export default function HeroSection() {
 
       <div className="flex items-center h-full px-[120px]">
         {/* Left content */}
-        <div className="flex flex-col gap-8 w-[620px] relative z-10">
+        <div ref={ref} className={`flex flex-col gap-8 w-[620px] relative z-10 animate-on-scroll ${isVisible ? "is-visible" : ""}`}>
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--purple-bg)] border border-[var(--purple-border)] self-start">
             <span className="w-1.5 h-1.5 rounded-full bg-[var(--purple-primary)]" />
             <span className="font-inter text-xs font-semibold text-[var(--purple-primary)] tracking-wider">AI 驱动的直播电商革命</span>
