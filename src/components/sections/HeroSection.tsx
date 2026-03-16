@@ -5,12 +5,12 @@ export default function HeroSection() {
   return (
     <section className="relative w-full h-[700px] bg-[var(--bg-primary)] overflow-hidden">
       {/* Glow effects */}
-      <div className="absolute w-[600px] h-[600px] left-[750px] -top-20 rounded-full bg-[radial-gradient(circle,rgba(184,134,248,0.125)_0%,transparent_70%)] opacity-70" />
-      <div className="absolute w-[400px] h-[400px] left-[100px] top-[350px] rounded-full bg-[radial-gradient(circle,rgba(124,58,237,0.07)_0%,transparent_70%)] opacity-50" />
+      <div className="absolute w-[600px] h-[600px] left-[750px] -top-20 rounded-full bg-[radial-gradient(circle,rgba(184,134,248,0.125)_0%,transparent_70%)] opacity-70 pointer-events-none" />
+      <div className="absolute w-[400px] h-[400px] left-[100px] top-[350px] rounded-full bg-[radial-gradient(circle,rgba(124,58,237,0.07)_0%,transparent_70%)] opacity-50 pointer-events-none" />
 
       <div className="flex items-center h-full px-[120px]">
         {/* Left content */}
-        <div className="flex flex-col gap-8 w-[620px]">
+        <div className="flex flex-col gap-8 w-[620px] relative z-10">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[rgba(184,134,248,0.08)] self-start">
             <span className="w-2 h-2 rounded-full bg-[var(--purple-primary)]" />
             <span className="font-inter text-[13px] font-medium text-[var(--purple-primary)]">AI 驱动的直播电商革命</span>
