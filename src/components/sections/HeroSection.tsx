@@ -26,9 +26,9 @@ export default function HeroSection() {
           </p>
           <div className="flex gap-4">
             <GradientButton href="/demo">预约演示</GradientButton>
-            <button className="px-9 py-4 rounded-xl border border-white/20 text-white font-semibold hover:bg-white/5 transition-colors">
+            <a href="#products" className="px-9 py-4 rounded-xl border border-white/20 text-white font-semibold hover:bg-white/5 transition-colors inline-block">
               了解更多
-            </button>
+            </a>
           </div>
         </div>
 

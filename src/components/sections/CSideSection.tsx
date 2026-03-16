@@ -33,13 +33,13 @@ export default function CSideSection() {
 
       {/* Right mockups */}
       <div className="relative w-[560px] h-[600px]">
-        <div className="absolute left-0 top-[60px] w-[260px] h-[480px] rounded-[32px] bg-[#1A1A2E] border border-white/10 overflow-hidden z-10 shadow-2xl">
+        <div className="absolute left-0 top-[60px] w-[260px] h-[480px] rounded-[32px] bg-white border border-white/10 overflow-hidden z-10 shadow-2xl">
           <Image src="/screenshots/肤质检测聊天界面.png" alt="肤质检测" fill className="object-cover object-top" />
         </div>
-        <div className="absolute left-[130px] top-0 w-[320px] h-[560px] rounded-[36px] bg-[#1A1A2E] border border-white/10 overflow-hidden z-20 shadow-2xl">
+        <div className="absolute left-[130px] top-0 w-[320px] h-[560px] rounded-[36px] bg-white border border-white/10 overflow-hidden z-20 shadow-2xl">
           <Image src="/screenshots/综合聊天界面.png" alt="综合聊天" fill className="object-cover object-top" />
         </div>
-        <div className="absolute right-0 top-[60px] w-[260px] h-[480px] rounded-[32px] bg-[#1A1A2E] border border-white/10 overflow-hidden z-10 shadow-2xl">
+        <div className="absolute right-0 top-[60px] w-[260px] h-[480px] rounded-[32px] bg-white border border-white/10 overflow-hidden z-10 shadow-2xl">
           <Image src="/screenshots/化妆台扫描聊天界面.png" alt="化妆台扫描" fill className="object-cover object-top" />
         </div>
         <div className="absolute left-[180px] -top-10 w-[200px] h-[200px] rounded-full bg-[radial-gradient(circle,rgba(184,134,248,0.2)_0%,transparent_70%)]" />
