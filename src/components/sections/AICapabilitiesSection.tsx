@@ -7,7 +7,7 @@ export default function AICapabilitiesSection() {
   const { ref, isVisible } = useInView();
 
   return (
-    <section className="w-full bg-[var(--bg-primary)] px-[120px] py-[140px] flex flex-col items-center gap-14">
+    <section className="w-full bg-[var(--bg-primary)] px-[120px] py-[140px] flex flex-col gap-14">
       <Badge text="核心 AI 能力" />
       <div ref={ref} className={`flex flex-col items-center gap-14 w-full animate-on-scroll ${isVisible ? "is-visible" : ""}`}>
         <h2 className="text-[40px] font-bold text-white text-center">核心 AI 能力</h2>

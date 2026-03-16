@@ -22,7 +22,7 @@ export default function BSideSection() {
   const { ref: ref2, isVisible: vis2 } = useInView();
 
   return (
-    <section className="w-full bg-[var(--bg-secondary)] px-[120px] py-[140px] flex flex-col items-center gap-14">
+    <section className="w-full bg-[var(--bg-secondary)] px-[120px] py-[140px] flex flex-col gap-14">
       <Badge text="管理平台" />
       <div ref={ref1} className={`flex flex-col items-center gap-14 w-full animate-on-scroll ${vis1 ? "is-visible" : ""}`}>
         <h2 className="text-[40px] font-bold text-white text-center">运营侧 — 全方位掌控数字员工</h2>
@@ -47,8 +47,8 @@ export default function BSideSection() {
       </div>
 
       {/* AI capabilities - horizontal alternating cards with real images */}
-      <div className="w-full flex flex-col items-center gap-10 mt-8">
-        <div className="flex flex-col items-center gap-3">
+      <div className="w-full flex flex-col gap-10 mt-8">
+        <div className="flex flex-col gap-3">
           <Badge text="AI 赋能运营" />
           <h3 className="text-4xl font-bold text-white">AI 赋能运营全链路</h3>
         </div>

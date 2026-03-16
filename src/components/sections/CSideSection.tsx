@@ -1,5 +1,7 @@
+"use client";
 import Image from "next/image";
 import Badge from "../Badge";
+import { useInView } from "@/hooks/useInView";
 
 const features = [
   "多模态沟通 — 文字/语音/图片/小程序卡片",
@@ -10,26 +12,28 @@ const features = [
 ];
 
 export default function CSideSection() {
+  const { ref, isVisible } = useInView();
+
   return (
     <section id="products" className="w-full bg-[var(--bg-secondary)] px-[120px] py-[140px] flex items-center gap-20">
-      {/* Left content */}
       <div className="flex flex-col gap-10 w-[520px]">
-        <Badge text="USER EXPERIENCE" />
-        <h2 className="text-4xl font-bold text-white">用户侧 — 像真人主播一样对话</h2>
-        <p className="text-base text-[var(--text-secondary)] leading-relaxed">
-          AI 数字员工支持文字、语音、图片等多模态互动，为用户提供真实的主播对话体验
-        </p>
-        <div className="flex flex-col gap-5">
-          {features.map((f) => (
-            <div key={f} className="flex items-center gap-3">
-              <span className="w-2 h-2 rounded-full bg-[var(--purple-primary)] shrink-0" />
-              <span className="text-[15px] text-[var(--text-feature)]">{f}</span>
-            </div>
-          ))}
+        <Badge text="用户体验" />
+        <div ref={ref} className={`flex flex-col gap-10 animate-on-scroll ${isVisible ? "is-visible" : ""}`}>
+          <h2 className="text-4xl font-bold text-white">用户侧 — 像真人主播一样对话</h2>
+          <p className="text-base text-[var(--text-secondary)] leading-relaxed">
+            AI 数字员工支持文字、语音、图片等多模态互动，为用户提供真实的主播对话体验
+          </p>
+          <div className="flex flex-col gap-5">
+            {features.map((f) => (
+              <div key={f} className="flex items-center gap-3">
+                <span className="w-2 h-2 rounded-full bg-[var(--purple-primary)] shrink-0" />
+                <span className="text-[15px] text-[var(--text-feature)]">{f}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* Right mockups */}
       <div className="relative w-[560px] h-[600px]">
         <div className="absolute left-0 top-[60px] w-[260px] h-[480px] rounded-[32px] bg-white border border-white/10 overflow-hidden z-10 shadow-2xl">
           <Image src="/screenshots/肤质检测聊天界面.png" alt="肤质检测" fill className="object-cover object-top" />

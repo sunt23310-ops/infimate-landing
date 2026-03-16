@@ -1,5 +1,7 @@
+"use client";
 import Image from "next/image";
 import Badge from "../Badge";
+import { useInView } from "@/hooks/useInView";
 
 const painPoints = [
   { num: "01", title: "主播精力瓶颈", desc: "持续工作时长受限、排期受限，头部主播个人依赖性强且可复制性低", img: "/images/pain1-streamer.png" },
@@ -10,12 +12,9 @@ const painPoints = [
 
 function BentoCard({ item, tall }: { item: typeof painPoints[number]; tall: boolean }) {
   return (
-    <div className={`relative rounded-[20px] overflow-hidden border border-white/[0.03] ${tall ? "flex-1" : "h-[220px]"}`}>
-      {/* Background image */}
+    <div className={`relative rounded-[20px] overflow-hidden border border-white/[0.03] card-hover ${tall ? "flex-1" : "h-[220px]"}`}>
       <Image src={item.img} alt={item.title} fill className="object-cover opacity-30" />
-      {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-[rgba(10,10,20,0.95)] via-[rgba(10,10,20,0.7)] to-[rgba(10,10,20,0.3)]" />
-      {/* Content */}
       <div className="relative z-10 flex flex-col gap-3 p-6 h-full justify-end">
         <span className="font-inter text-[48px] font-bold text-[rgba(184,134,248,0.15)] leading-none">{item.num}</span>
         <h3 className="text-xl font-semibold text-white">{item.title}</h3>
@@ -26,20 +25,22 @@ function BentoCard({ item, tall }: { item: typeof painPoints[number]; tall: bool
 }
 
 export default function PainPointsSection() {
-  return (
-    <section className="w-full bg-[#161630] px-[120px] py-[100px] flex flex-col items-center gap-14">
-      <Badge text="INDUSTRY CHALLENGES" />
-      <h2 className="text-[40px] font-bold text-white text-center">直播电商正面临前所未有的挑战</h2>
+  const { ref, isVisible } = useInView();
 
-      {/* Bento grid: 2 columns, asymmetric staggered */}
-      <div className="w-full flex gap-5 h-[600px]">
-        <div className="flex-1 flex flex-col gap-5">
-          <BentoCard item={painPoints[0]} tall />
-          <BentoCard item={painPoints[1]} tall={false} />
-        </div>
-        <div className="flex-1 flex flex-col gap-5">
-          <BentoCard item={painPoints[2]} tall={false} />
-          <BentoCard item={painPoints[3]} tall />
+  return (
+    <section className="w-full bg-[#161630] px-[120px] py-[100px] flex flex-col gap-14">
+      <Badge text="行业挑战" />
+      <div ref={ref} className={`flex flex-col items-center gap-14 w-full animate-on-scroll ${isVisible ? "is-visible" : ""}`}>
+        <h2 className="text-[40px] font-bold text-white text-center">直播电商正面临前所未有的挑战</h2>
+        <div className="w-full flex gap-5 h-[600px]">
+          <div className="flex-1 flex flex-col gap-5">
+            <BentoCard item={painPoints[0]} tall />
+            <BentoCard item={painPoints[1]} tall={false} />
+          </div>
+          <div className="flex-1 flex flex-col gap-5">
+            <BentoCard item={painPoints[2]} tall={false} />
+            <BentoCard item={painPoints[3]} tall />
+          </div>
         </div>
       </div>
     </section>
