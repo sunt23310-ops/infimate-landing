@@ -4,14 +4,31 @@ import GradientButton from "../GradientButton";
 export default function HeroSection() {
   return (
     <section className="relative w-full h-[700px] bg-[var(--bg-primary)] overflow-hidden">
-      {/* Glow effects */}
-      <div className="absolute w-[600px] h-[600px] left-[750px] -top-20 rounded-full bg-[radial-gradient(circle,rgba(184,134,248,0.125)_0%,transparent_70%)] opacity-70 pointer-events-none" />
-      <div className="absolute w-[400px] h-[400px] left-[100px] top-[350px] rounded-full bg-[radial-gradient(circle,rgba(124,58,237,0.07)_0%,transparent_70%)] opacity-50 pointer-events-none" />
+      {/* Tech background pattern */}
+      <div
+        className="absolute inset-0 opacity-[0.12] pointer-events-none"
+        style={{
+          backgroundImage: `radial-gradient(circle at 25% 25%, rgba(184,134,248,0.3) 0%, transparent 50%),
+            radial-gradient(circle at 75% 75%, rgba(124,58,237,0.2) 0%, transparent 50%),
+            linear-gradient(rgba(184,134,248,0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(184,134,248,0.05) 1px, transparent 1px)`,
+          backgroundSize: "100% 100%, 100% 100%, 60px 60px, 60px 60px",
+        }}
+      />
+
+      {/* Gradient overlay for text readability */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[rgba(10,10,10,0.85)] via-[rgba(10,10,10,0.5)] to-[rgba(10,10,10,0.6)] pointer-events-none" />
+
+      {/* Main purple glow - large */}
+      <div className="absolute w-[800px] h-[800px] left-[550px] -top-[200px] rounded-full bg-[radial-gradient(circle,rgba(184,134,248,0.27)_0%,transparent_70%)] pointer-events-none" />
+
+      {/* Left secondary glow */}
+      <div className="absolute w-[600px] h-[600px] -left-[100px] top-[150px] rounded-full bg-[radial-gradient(circle,rgba(124,58,237,0.19)_0%,transparent_70%)] pointer-events-none" />
 
       <div className="flex items-center h-full px-[120px]">
         {/* Left content */}
         <div className="flex flex-col gap-8 w-[620px] relative z-10">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[rgba(184,134,248,0.08)] self-start">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[rgba(184,134,248,0.08)] border border-[rgba(184,134,248,0.16)] self-start">
             <span className="w-2 h-2 rounded-full bg-[var(--purple-primary)]" />
             <span className="font-inter text-[13px] font-medium text-[var(--purple-primary)]">AI 驱动的直播电商革命</span>
           </div>
@@ -32,12 +49,17 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* Right phone mockup */}
+        {/* Right phone mockup with glow */}
         <div className="absolute right-[120px] top-[100px] w-[340px] h-[620px]">
-          <div className="absolute inset-0 rounded-[40px] bg-[#1A1A2E] border border-white/10 overflow-hidden">
-            <Image src="/screenshots/综合聊天界面.png" alt="AI Chat" fill className="object-cover object-top" />
+          {/* Dual glow behind phone */}
+          <div className="absolute -inset-16 rounded-full bg-[radial-gradient(circle,rgba(184,134,248,0.2)_0%,transparent_70%)] pointer-events-none" />
+          <div className="absolute -inset-24 rounded-full bg-[radial-gradient(circle,rgba(124,58,237,0.12)_0%,transparent_70%)] pointer-events-none" />
+          {/* Phone with gradient border */}
+          <div className="absolute inset-0 rounded-[28px] p-[1px] bg-gradient-to-b from-[rgba(184,134,248,0.4)] to-[rgba(124,58,237,0.1)] shadow-[0_0_40px_8px_rgba(184,134,248,0.15)]">
+            <div className="w-full h-full rounded-[27px] bg-[#1A1A2E] overflow-hidden">
+              <Image src="/screenshots/综合聊天界面.png" alt="AI Chat" fill className="object-cover object-top" />
+            </div>
           </div>
-          <div className="absolute -inset-20 rounded-full bg-[radial-gradient(circle,rgba(184,134,248,0.15)_0%,transparent_70%)] -z-10" />
         </div>
       </div>
     </section>

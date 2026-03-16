@@ -3,9 +3,9 @@ import { BarChart3, Sparkles, MessageCircle, Package, Video, Users } from "lucid
 import Badge from "../Badge";
 
 const aiCards = [
-  { icon: BarChart3, title: "智能数据分析", desc: "AI 自动解读销售数据、用户行为，生成可执行的运营策略建议" },
-  { icon: Sparkles, title: "商品卖点智能生成", desc: "基于商品特性与用户偏好，自动生成个性化卖点话术与推荐理由" },
-  { icon: MessageCircle, title: "私域反馈 & 智能客服", desc: "整合用户反馈数据，智能分类与分析，辅助产品与服务优化决策" },
+  { icon: BarChart3, title: "智能数据分析", desc: "AI 自动解读销售数据、用户行为，生成可执行的运营策略建议", imgAlign: "right" as const },
+  { icon: Sparkles, title: "商品卖点智能生成", desc: "基于商品特性与用户偏好，自动生成个性化卖点话术与推荐理由", imgAlign: "left" as const },
+  { icon: MessageCircle, title: "私域反馈 & 智能客服", desc: "整合用户反馈数据，智能分类与分析，辅助产品与服务优化决策", imgAlign: "right" as const },
 ];
 
 const bFeatures = [
@@ -39,7 +39,7 @@ export default function BSideSection() {
         </div>
       </div>
 
-      {/* AI capabilities */}
+      {/* AI capabilities - horizontal alternating cards */}
       <div className="w-full flex flex-col items-center gap-10 mt-8">
         <div className="flex flex-col items-center gap-3">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--purple-bg)] border border-[var(--purple-border)]">
@@ -47,14 +47,21 @@ export default function BSideSection() {
           </div>
           <h3 className="text-4xl font-bold text-white">AI 赋能运营全链路</h3>
         </div>
-        <div className="w-full grid grid-cols-3 gap-5">
-          {aiCards.map((item) => (
-            <div key={item.title} className="bg-[var(--bg-card)] rounded-2xl p-6 flex flex-col gap-4 border border-white/[0.03]">
-              <div className="w-10 h-10 rounded-lg bg-[var(--purple-bg)] flex items-center justify-center">
-                <item.icon size={20} className="text-[var(--purple-primary)]" />
+        <div className="w-full flex flex-col gap-5">
+          {aiCards.map((item, i) => (
+            <div key={item.title} className={`w-full flex ${i % 2 === 1 ? "flex-row-reverse" : "flex-row"} items-stretch rounded-2xl overflow-hidden border border-white/[0.03] bg-[var(--bg-card)]`}>
+              {/* Text side */}
+              <div className="flex-1 p-8 flex flex-col justify-center gap-4">
+                <div className="w-10 h-10 rounded-lg bg-[var(--purple-bg)] flex items-center justify-center">
+                  <item.icon size={20} className="text-[var(--purple-primary)]" />
+                </div>
+                <h4 className="text-xl font-semibold text-white">{item.title}</h4>
+                <p className="text-[15px] text-[var(--text-secondary)] leading-relaxed">{item.desc}</p>
               </div>
-              <h4 className="text-lg font-semibold text-white">{item.title}</h4>
-              <p className="text-[15px] text-[var(--text-secondary)] leading-relaxed">{item.desc}</p>
+              {/* Image side */}
+              <div className="w-[400px] h-[200px] bg-gradient-to-br from-[#1a1a3e] via-[#141420] to-[#0f0f2a] flex items-center justify-center">
+                <item.icon size={48} className="text-[rgba(184,134,248,0.2)]" />
+              </div>
             </div>
           ))}
         </div>
