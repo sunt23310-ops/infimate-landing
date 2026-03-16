@@ -3,9 +3,9 @@ import { BarChart3, Sparkles, MessageCircle, Package, Video, Users } from "lucid
 import Badge from "../Badge";
 
 const aiCards = [
-  { icon: BarChart3, title: "智能数据分析", desc: "AI 自动解读销售数据、用户行为，生成可执行的运营策略建议", imgAlign: "right" as const },
-  { icon: Sparkles, title: "商品卖点智能生成", desc: "基于商品特性与用户偏好，自动生成个性化卖点话术与推荐理由", imgAlign: "left" as const },
-  { icon: MessageCircle, title: "私域反馈 & 智能客服", desc: "整合用户反馈数据，智能分类与分析，辅助产品与服务优化决策", imgAlign: "right" as const },
+  { icon: BarChart3, title: "智能数据分析", desc: "AI 自动解读销售数据、用户行为，生成可执行的运营策略建议", img: "/images/ai-data.jpg" },
+  { icon: Sparkles, title: "商品卖点智能生成", desc: "基于商品特性与用户偏好，自动生成个性化卖点话术与推荐理由", img: "/images/ai-product.jpg" },
+  { icon: MessageCircle, title: "私域反馈 & 智能客服", desc: "整合用户反馈数据，智能分类与分析，辅助产品与服务优化决策", img: "/images/ai-feedback.jpg" },
 ];
 
 const bFeatures = [
@@ -39,7 +39,7 @@ export default function BSideSection() {
         </div>
       </div>
 
-      {/* AI capabilities - horizontal alternating cards */}
+      {/* AI capabilities - horizontal alternating cards with real images */}
       <div className="w-full flex flex-col items-center gap-10 mt-8">
         <div className="flex flex-col items-center gap-3">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--purple-bg)] border border-[var(--purple-border)]">
@@ -59,8 +59,9 @@ export default function BSideSection() {
                 <p className="text-[15px] text-[var(--text-secondary)] leading-relaxed">{item.desc}</p>
               </div>
               {/* Image side */}
-              <div className="w-[400px] h-[200px] bg-gradient-to-br from-[#1a1a3e] via-[#141420] to-[#0f0f2a] flex items-center justify-center">
-                <item.icon size={48} className="text-[rgba(184,134,248,0.2)]" />
+              <div className="relative w-[400px] min-h-[200px]">
+                <Image src={item.img} alt={item.title} fill className="object-cover opacity-60" />
+                <div className={`absolute inset-0 bg-gradient-to-${i % 2 === 1 ? "r" : "l"} from-transparent to-[var(--bg-card)]`} />
               </div>
             </div>
           ))}
