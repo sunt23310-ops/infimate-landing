@@ -1,26 +1,49 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* 官网深色主题 */
+  --bg-primary: #0A0A0A;
+  --bg-secondary: #0F0F1A;
+  --bg-card: #141420;
+  --bg-footer: #050508;
+  --bg-header: rgba(10, 10, 10, 0.88);
+
+  --text-white: #FFFFFF;
+  --text-secondary: #A0A0B0;
+  --text-muted: #666680;
+  --text-feature: #CCCCDD;
+
+  --purple-primary: #B886F8;
+  --purple-dark: #7C3AED;
+  --purple-bg: rgba(184, 134, 248, 0.063);
+  --purple-border: rgba(184, 134, 248, 0.19);
+  --purple-glow: rgba(184, 134, 248, 0.125);
+
+  /* B-side 浅色主题 */
+  --bs-bg: #FFFFFF;
+  --bs-primary: #FF3B30;
+  --bs-sidebar: #0A0A0A;
+  --bs-border: #E0E0E0;
+  --bs-text: #0A0A0A;
+  --bs-text-muted: #666666;
+  --bs-success: #22C55E;
+  --bs-warning: #FFD700;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  .font-inter {
+    font-family: var(--font-inter), "Inter", sans-serif;
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  .font-noto {
+    font-family: var(--font-noto-sans-sc), "Noto Sans SC", sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  html, body {
+    height: 100%;
+  }
 }
