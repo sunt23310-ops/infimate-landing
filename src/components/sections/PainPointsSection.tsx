@@ -2,8 +2,8 @@ import Image from "next/image";
 import Badge from "../Badge";
 
 const painPoints = [
-  { num: "01", title: "主播精力瓶颈", desc: "持续工作时长受限、排期受限，头部主播个人依赖性强且可复制性低", img: "/images/pain1-streamer.jpg" },
-  { num: "02", title: "私域运营成本激增", desc: "流量成本攀升，人工客服成本居高不下，精细化运营难以规模化", img: "/images/pain2-cost.jpg" },
+  { num: "01", title: "主播精力瓶颈", desc: "持续工作时长受限、排期受限，头部主播个人依赖性强且可复制性低", img: "/images/pain1-streamer.png" },
+  { num: "02", title: "私域运营成本激增", desc: "流量成本攀升，人工客服成本居高不下，精细化运营难以规模化", img: "/images/pain2-cost.png" },
   { num: "03", title: "用户咨询无法即时响应", desc: "粉丝海量咨询、个性化推荐需求难以通过直播或人工客服有效满足", img: "/images/pain3-chat.jpg" },
   { num: "04", title: "非直播时段价值浪费", desc: "直播间隔期用户活跃度低，预热种草、售后跟进、复购引导缺乏有效触达", img: "/images/pain4-time.jpg" },
 ];

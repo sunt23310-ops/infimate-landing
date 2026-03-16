@@ -6,7 +6,7 @@ export default function HeroSection() {
     <section className="relative w-full h-[700px] bg-[var(--bg-primary)] overflow-hidden">
       {/* Tech background image */}
       <div className="absolute inset-0">
-        <Image src="/images/hero-tech-bg.jpg" alt="" fill className="object-cover opacity-[0.45]" priority />
+        <Image src="/images/hero-tech-bg.png" alt="" fill className="object-cover opacity-[0.45]" priority />
       </div>
 
       {/* Gradient overlay for text readability */}
