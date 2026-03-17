@@ -13,11 +13,25 @@ const demoFeatures = [
 
 export default function DemoPage() {
   const [form, setForm] = useState({ company: "", name: "", phone: "", desc: "" });
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
-  const handleSubmit = () => {
-    const subject = encodeURIComponent(`[预约演示] ${form.company} - ${form.name}`);
-    const body = encodeURIComponent(`公司名称：${form.company}\n联系人：${form.name}\n手机号码：${form.phone}\n\n需求描述：\n${form.desc}`);
-    window.open(`mailto:support@infimate.ai?subject=${subject}&body=${body}`);
+  const handleSubmit = async () => {
+    setStatus("sending");
+    try {
+      const res = await fetch("/api/demo", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (res.ok) {
+        setStatus("sent");
+        setForm({ company: "", name: "", phone: "", desc: "" });
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
@@ -71,8 +85,8 @@ export default function DemoPage() {
               className="h-[120px] px-4 py-3 rounded-lg bg-[#0A0A1A] border border-white/10 text-white text-sm placeholder:text-[var(--text-muted)] outline-none focus:border-[var(--purple-primary)] transition-colors resize-none"
             />
           </div>
-          <button onClick={handleSubmit} className="h-[52px] rounded-xl bg-gradient-to-b from-[var(--purple-primary)] to-[var(--purple-dark)] text-white text-base font-semibold hover:opacity-90 transition-opacity">
-            提交预约
+          <button onClick={handleSubmit} disabled={status === "sending"} className="h-[52px] rounded-xl bg-gradient-to-b from-[var(--purple-primary)] to-[var(--purple-dark)] text-white text-base font-semibold hover:opacity-90 transition-opacity disabled:opacity-50">
+            {status === "sending" ? "提交中..." : status === "sent" ? "已提交 ✓" : "提交预约"}
           </button>
         </div>
       </section>

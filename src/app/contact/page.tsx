@@ -12,11 +12,25 @@ const contactInfo = [
 
 export default function ContactPage() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
-  const handleSubmit = () => {
-    const subject = encodeURIComponent(`[官网留言] 来自 ${form.name}`);
-    const body = encodeURIComponent(`姓名：${form.name}\n邮箱：${form.email}\n\n留言内容：\n${form.message}`);
-    window.open(`mailto:support@infimate.ai?subject=${subject}&body=${body}`);
+  const handleSubmit = async () => {
+    setStatus("sending");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (res.ok) {
+        setStatus("sent");
+        setForm({ name: "", email: "", message: "" });
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
@@ -54,8 +68,8 @@ export default function ContactPage() {
             <label className="text-sm text-[var(--text-secondary)]">留言内容</label>
             <textarea value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} placeholder="请输入留言内容..." className="h-[120px] px-4 py-3 rounded-lg bg-[#0A0A1A] border border-white/10 text-white text-sm placeholder:text-[var(--text-muted)] outline-none focus:border-[var(--purple-primary)] transition-colors resize-none" />
           </div>
-          <button onClick={handleSubmit} className="h-[52px] rounded-xl bg-gradient-to-b from-[var(--purple-primary)] to-[var(--purple-dark)] text-white text-base font-semibold hover:opacity-90 transition-opacity">
-            发送留言
+          <button onClick={handleSubmit} disabled={status === "sending"} className="h-[52px] rounded-xl bg-gradient-to-b from-[var(--purple-primary)] to-[var(--purple-dark)] text-white text-base font-semibold hover:opacity-90 transition-opacity disabled:opacity-50">
+            {status === "sending" ? "发送中..." : status === "sent" ? "已发送 ✓" : "发送留言"}
           </button>
         </div>
       </section>
