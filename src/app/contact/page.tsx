@@ -1,6 +1,3 @@
-"use client";
-
-import { useState } from "react";
 import SubpageHeader from "@/components/SubpageHeader";
 import Badge from "@/components/Badge";
 import { Mail, MapPin } from "lucide-react";
@@ -11,28 +8,6 @@ const contactInfo = [
 ];
 
 export default function ContactPage() {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
-
-  const handleSubmit = async () => {
-    setStatus("sending");
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
-      if (res.ok) {
-        setStatus("sent");
-        setForm({ name: "", email: "", message: "" });
-      } else {
-        setStatus("error");
-      }
-    } catch {
-      setStatus("error");
-    }
-  };
-
   return (
     <main className="bg-[var(--bg-primary)] text-white min-h-screen">
       <SubpageHeader />
@@ -58,18 +33,18 @@ export default function ContactPage() {
           <h2 className="text-2xl font-semibold">给我们留言</h2>
           <div className="flex flex-col gap-2">
             <label className="text-sm text-[var(--text-secondary)]">您的姓名</label>
-            <input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="请输入姓名" className="h-12 px-4 rounded-lg bg-[#0A0A1A] border border-white/10 text-white text-sm placeholder:text-[var(--text-muted)] outline-none focus:border-[var(--purple-primary)] transition-colors" />
+            <input placeholder="请输入姓名" className="h-12 px-4 rounded-lg bg-[#0A0A1A] border border-white/10 text-white text-sm placeholder:text-[var(--text-muted)] outline-none focus:border-[var(--purple-primary)] transition-colors" />
           </div>
           <div className="flex flex-col gap-2">
             <label className="text-sm text-[var(--text-secondary)]">联系邮箱</label>
-            <input value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} type="email" placeholder="请输入邮箱地址" className="h-12 px-4 rounded-lg bg-[#0A0A1A] border border-white/10 text-white text-sm placeholder:text-[var(--text-muted)] outline-none focus:border-[var(--purple-primary)] transition-colors" />
+            <input type="email" placeholder="请输入邮箱地址" className="h-12 px-4 rounded-lg bg-[#0A0A1A] border border-white/10 text-white text-sm placeholder:text-[var(--text-muted)] outline-none focus:border-[var(--purple-primary)] transition-colors" />
           </div>
           <div className="flex flex-col gap-2">
             <label className="text-sm text-[var(--text-secondary)]">留言内容</label>
-            <textarea value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} placeholder="请输入留言内容..." className="h-[120px] px-4 py-3 rounded-lg bg-[#0A0A1A] border border-white/10 text-white text-sm placeholder:text-[var(--text-muted)] outline-none focus:border-[var(--purple-primary)] transition-colors resize-none" />
+            <textarea placeholder="请输入留言内容..." className="h-[120px] px-4 py-3 rounded-lg bg-[#0A0A1A] border border-white/10 text-white text-sm placeholder:text-[var(--text-muted)] outline-none focus:border-[var(--purple-primary)] transition-colors resize-none" />
           </div>
-          <button onClick={handleSubmit} disabled={status === "sending"} className="h-[52px] rounded-xl bg-gradient-to-b from-[var(--purple-primary)] to-[var(--purple-dark)] text-white text-base font-semibold hover:opacity-90 transition-opacity disabled:opacity-50">
-            {status === "sending" ? "发送中..." : status === "sent" ? "已发送 ✓" : "发送留言"}
+          <button className="h-[52px] rounded-xl bg-gradient-to-b from-[var(--purple-primary)] to-[var(--purple-dark)] text-white text-base font-semibold hover:opacity-90 transition-opacity">
+            发送留言
           </button>
         </div>
       </section>

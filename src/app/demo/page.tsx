@@ -1,6 +1,3 @@
-"use client";
-
-import { useState } from "react";
 import SubpageHeader from "@/components/SubpageHeader";
 import { CircleCheck } from "lucide-react";
 
@@ -12,28 +9,6 @@ const demoFeatures = [
 ];
 
 export default function DemoPage() {
-  const [form, setForm] = useState({ company: "", name: "", phone: "", desc: "" });
-  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
-
-  const handleSubmit = async () => {
-    setStatus("sending");
-    try {
-      const res = await fetch("/api/demo", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
-      if (res.ok) {
-        setStatus("sent");
-        setForm({ company: "", name: "", phone: "", desc: "" });
-      } else {
-        setStatus("error");
-      }
-    } catch {
-      setStatus("error");
-    }
-  };
-
   return (
     <main className="bg-[var(--bg-primary)] text-white min-h-screen">
       <SubpageHeader />
@@ -61,17 +36,15 @@ export default function DemoPage() {
         <div className="w-[480px] bg-[var(--bg-card)] rounded-[20px] border border-white/[0.06] p-10 flex flex-col gap-6">
           <h2 className="text-2xl font-semibold">填写信息</h2>
           {[
-            { label: "公司名称", placeholder: "请输入公司名称", type: "text", key: "company" as const },
-            { label: "联系人姓名", placeholder: "请输入联系人姓名", type: "text", key: "name" as const },
-            { label: "手机号码", placeholder: "请输入手机号码", type: "tel", key: "phone" as const },
+            { label: "公司名称", placeholder: "请输入公司名称", type: "text" },
+            { label: "联系人姓名", placeholder: "请输入联系人姓名", type: "text" },
+            { label: "手机号码", placeholder: "请输入手机号码", type: "tel" },
           ].map((field) => (
             <div key={field.label} className="flex flex-col gap-2">
               <label className="text-sm text-[var(--text-secondary)]">{field.label}</label>
               <input
                 type={field.type}
                 placeholder={field.placeholder}
-                value={form[field.key]}
-                onChange={(e) => setForm({ ...form, [field.key]: e.target.value })}
                 className="h-12 px-4 rounded-lg bg-[#0A0A1A] border border-white/10 text-white text-sm placeholder:text-[var(--text-muted)] outline-none focus:border-[var(--purple-primary)] transition-colors"
               />
             </div>
@@ -80,13 +53,11 @@ export default function DemoPage() {
             <label className="text-sm text-[var(--text-secondary)]">需求描述</label>
             <textarea
               placeholder="请简要描述您的需求与业务场景..."
-              value={form.desc}
-              onChange={(e) => setForm({ ...form, desc: e.target.value })}
               className="h-[120px] px-4 py-3 rounded-lg bg-[#0A0A1A] border border-white/10 text-white text-sm placeholder:text-[var(--text-muted)] outline-none focus:border-[var(--purple-primary)] transition-colors resize-none"
             />
           </div>
-          <button onClick={handleSubmit} disabled={status === "sending"} className="h-[52px] rounded-xl bg-gradient-to-b from-[var(--purple-primary)] to-[var(--purple-dark)] text-white text-base font-semibold hover:opacity-90 transition-opacity disabled:opacity-50">
-            {status === "sending" ? "提交中..." : status === "sent" ? "已提交 ✓" : "提交预约"}
+          <button className="h-[52px] rounded-xl bg-gradient-to-b from-[var(--purple-primary)] to-[var(--purple-dark)] text-white text-base font-semibold hover:opacity-90 transition-opacity">
+            提交预约
           </button>
         </div>
       </section>
