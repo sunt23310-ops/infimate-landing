@@ -31,7 +31,7 @@ export default function BSideSection() {
         </p>
 
         {/* Browser mockup */}
-        <div className="w-full rounded-2xl overflow-hidden border border-white/[0.06] bg-[#1A1A2E] card-hover">
+        <div className={`w-full rounded-2xl overflow-hidden border border-white/[0.06] bg-[#1A1A2E] card-hover animate-scale-in ${vis1 ? "is-visible" : ""}`} style={{ animationDelay: "0.2s" }}>
           <div className="flex items-center gap-2 px-5 h-11 bg-[#111118] border-b border-white/[0.06]">
             <span className="w-3 h-3 rounded-full bg-[#FF5F56]" />
             <span className="w-3 h-3 rounded-full bg-[#FFBD2E]" />

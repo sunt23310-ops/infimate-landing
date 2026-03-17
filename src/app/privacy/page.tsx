@@ -19,6 +19,7 @@ export default function PrivacyPage() {
   return (
     <main className="bg-[var(--bg-primary)] text-white min-h-screen">
       <SubpageHeader />
+      <div className="h-[72px]" />
       <section className="px-[280px] py-20 flex flex-col gap-10">
         <h1 className="text-4xl font-bold">隐私政策</h1>
         <p className="text-sm text-[var(--text-muted)]">最后更新日期：2026 年 3 月 1 日</p>

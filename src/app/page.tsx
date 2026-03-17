@@ -15,6 +15,7 @@ export default function Home() {
   return (
     <main className="bg-[var(--bg-primary)] text-white overflow-x-hidden">
       <Header />
+      <div className="h-[72px]" />
       <HeroSection />
       <SectionDivider />
       <PainPointsSection />

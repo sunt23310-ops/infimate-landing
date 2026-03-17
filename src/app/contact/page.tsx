@@ -12,6 +12,7 @@ export default function ContactPage() {
   return (
     <main className="bg-[var(--bg-primary)] text-white min-h-screen">
       <SubpageHeader />
+      <div className="h-[72px]" />
       <section className="flex items-center gap-20 px-[120px] py-[100px]">
         <div className="flex-1 flex flex-col gap-10">
           <Badge text="CONTACT US" />

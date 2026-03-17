@@ -16,7 +16,7 @@ function BentoCard({ item, tall }: { item: typeof painPoints[number]; tall: bool
       <Image src={item.img} alt={item.title} fill className="object-cover opacity-30" />
       <div className="absolute inset-0 bg-gradient-to-t from-[rgba(10,10,20,0.95)] via-[rgba(10,10,20,0.7)] to-[rgba(10,10,20,0.3)]" />
       <div className="relative z-10 flex flex-col gap-3 p-6 h-full justify-end">
-        <span className="font-inter text-[48px] font-bold text-[rgba(184,134,248,0.15)] leading-none">{item.num}</span>
+        <span className="font-inter text-[48px] font-bold text-[rgba(184,134,248,0.4)] leading-none drop-shadow-[0_0_12px_rgba(184,134,248,0.3)]">{item.num}</span>
         <h3 className="text-xl font-semibold text-white">{item.title}</h3>
         <p className="text-sm text-[var(--text-muted)] leading-relaxed">{item.desc}</p>
       </div>
@@ -32,7 +32,7 @@ export default function PainPointsSection() {
       <Badge text="行业挑战" />
       <div ref={ref} className={`flex flex-col items-center gap-14 w-full animate-on-scroll ${isVisible ? "is-visible" : ""}`}>
         <h2 className="text-[40px] font-bold text-white text-center">直播电商正面临前所未有的挑战</h2>
-        <div className="w-full flex gap-5 h-[600px]">
+        <div className={`w-full flex gap-5 h-[600px] animate-stagger-scale ${isVisible ? "is-visible" : ""}`}>
           <div className="flex-1 flex flex-col gap-5">
             <BentoCard item={painPoints[0]} tall />
             <BentoCard item={painPoints[1]} tall={false} />

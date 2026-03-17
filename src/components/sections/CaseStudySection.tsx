@@ -17,7 +17,7 @@ export default function CaseStudySection() {
       <div ref={ref} className={`flex flex-col items-center gap-14 w-full animate-on-scroll ${isVisible ? "is-visible" : ""}`}>
         <h2 className="text-[40px] font-bold text-white text-center">头部客户信赖之选</h2>
 
-        <div className="w-full rounded-[20px] p-[1px] bg-gradient-to-br from-[rgba(184,134,248,0.3)] via-transparent to-[rgba(124,58,237,0.15)] shadow-[0_0_30px_0_rgba(184,134,248,0.1)] border-glow">
+        <div className={`w-full rounded-[20px] p-[1px] bg-gradient-to-br from-[rgba(184,134,248,0.3)] via-transparent to-[rgba(124,58,237,0.15)] shadow-[0_0_30px_0_rgba(184,134,248,0.1)] border-glow animate-scale-in ${isVisible ? "is-visible" : ""}`} style={{ animationDelay: "0.15s" }}>
           <div className="w-full bg-[var(--bg-card)] rounded-[20px] p-12 flex items-center gap-12 card-hover">
             <div className="flex-1 flex flex-col gap-6">
               <span className="font-inter text-[64px] font-bold text-[var(--purple-primary)] leading-none">&ldquo;</span>

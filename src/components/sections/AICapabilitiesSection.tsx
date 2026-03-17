@@ -15,7 +15,7 @@ export default function AICapabilitiesSection() {
           基于大语言模型与多模态 AI 技术，为直播电商场景量身打造四大核心能力模块，全面赋能主播私域运营
         </p>
 
-        <div className="w-full grid grid-cols-2 grid-rows-2 gap-5 h-[560px]">
+        <div className={`w-full grid grid-cols-2 grid-rows-2 gap-5 h-[560px] animate-stagger-scale ${isVisible ? "is-visible" : ""}`}>
           {/* b1 - Skin detection with phone */}
           <div className="relative bg-[var(--bg-card)] rounded-2xl p-6 border border-white/[0.03] overflow-hidden flex card-hover">
             <div className="flex flex-col gap-3 w-1/2">

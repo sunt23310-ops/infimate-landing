@@ -22,10 +22,10 @@ export default function SolutionSection() {
         </p>
 
         <div className="relative w-full h-[560px]">
-          <div className="absolute w-[500px] h-[500px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(184,134,248,0.14)_0%,transparent_70%)] pointer-events-none" />
+          <div className="absolute w-[500px] h-[500px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(184,134,248,0.14)_0%,transparent_70%)] pointer-events-none glow-pulse" />
 
           {/* Center orb with pulse */}
-          <div className="absolute left-1/2 top-[165px] w-[150px] h-[150px] rounded-full bg-gradient-to-b from-[var(--purple-primary)] to-[var(--purple-dark)] flex items-center justify-center orb-pulse">
+          <div className={`absolute left-1/2 top-[165px] w-[150px] h-[150px] rounded-full bg-gradient-to-b from-[var(--purple-primary)] to-[var(--purple-dark)] flex items-center justify-center orb-pulse animate-scale-in ${isVisible ? "is-visible" : ""}`}>
             <Bot size={60} className="text-white" />
           </div>
 
@@ -43,7 +43,7 @@ export default function SolutionSection() {
           <div className="absolute w-1 h-1 rounded-full bg-[rgba(184,134,248,0.25)] left-1/2 -translate-x-1/2 top-[365px]" />
 
           {/* Card 1 - Left */}
-          <div className="absolute left-0 top-[140px] w-[340px] bg-[var(--bg-card)] rounded-2xl p-6 border border-[rgba(184,134,248,0.09)] shadow-[0_0_20px_0_rgba(184,134,248,0.07)] card-hover">
+          <div className={`absolute left-0 top-[140px] w-[340px] bg-[var(--bg-card)] rounded-2xl p-6 border border-[rgba(184,134,248,0.09)] shadow-[0_0_20px_0_rgba(184,134,248,0.07)] card-hover animate-fade-left ${isVisible ? "is-visible" : ""}`} style={{ animationDelay: "0.3s" }}>
             <div className="flex flex-col gap-3">
               <div className="w-11 h-11 rounded-[10px] bg-[rgba(184,134,248,0.08)] flex items-center justify-center">
                 <User size={22} className="text-[var(--purple-primary)]" />
@@ -54,7 +54,7 @@ export default function SolutionSection() {
           </div>
 
           {/* Card 2 - Right */}
-          <div className="absolute right-0 top-[140px] w-[340px] bg-[var(--bg-card)] rounded-2xl p-6 border border-[rgba(184,134,248,0.09)] shadow-[0_0_20px_0_rgba(184,134,248,0.07)] card-hover">
+          <div className={`absolute right-0 top-[140px] w-[340px] bg-[var(--bg-card)] rounded-2xl p-6 border border-[rgba(184,134,248,0.09)] shadow-[0_0_20px_0_rgba(184,134,248,0.07)] card-hover animate-fade-right ${isVisible ? "is-visible" : ""}`} style={{ animationDelay: "0.3s" }}>
             <div className="flex flex-col gap-3">
               <div className="w-11 h-11 rounded-[10px] bg-[rgba(184,134,248,0.08)] flex items-center justify-center">
                 <Brain size={22} className="text-[var(--purple-primary)]" />
@@ -65,7 +65,7 @@ export default function SolutionSection() {
           </div>
 
           {/* Card 3 - Bottom center */}
-          <div className="absolute left-1/2 -translate-x-1/2 top-[380px] w-[420px] bg-[var(--bg-card)] rounded-2xl p-6 border border-[rgba(184,134,248,0.09)] shadow-[0_0_20px_0_rgba(184,134,248,0.07)] card-hover">
+          <div className={`absolute left-1/2 -translate-x-1/2 top-[380px] w-[420px] bg-[var(--bg-card)] rounded-2xl p-6 border border-[rgba(184,134,248,0.09)] shadow-[0_0_20px_0_rgba(184,134,248,0.07)] card-hover animate-on-scroll ${isVisible ? "is-visible" : ""}`} style={{ animationDelay: "0.45s" }}>
             <div className="flex flex-col gap-3">
               <div className="w-11 h-11 rounded-[10px] bg-[rgba(184,134,248,0.08)] flex items-center justify-center">
                 <Settings size={22} className="text-[var(--purple-primary)]" />

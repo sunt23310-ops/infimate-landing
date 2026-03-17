@@ -26,6 +26,7 @@ export default function JoinPage() {
   return (
     <main className="bg-[var(--bg-primary)] text-white min-h-screen">
       <SubpageHeader />
+      <div className="h-[72px]" />
       <section className="flex flex-col items-center gap-14 px-[120px] py-[100px]">
         <Badge text="JOIN US" />
         <h1 className="text-[44px] font-bold text-center">加入我们，共创 AI 未来</h1>

@@ -19,6 +19,7 @@ export default function AboutPage() {
   return (
     <main className="bg-[var(--bg-primary)] text-white min-h-screen">
       <SubpageHeader />
+      <div className="h-[72px]" />
 
       {/* Hero */}
       <section className="flex flex-col items-center gap-8 px-[120px] py-[100px]">
