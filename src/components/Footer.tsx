@@ -14,20 +14,18 @@ export default function Footer() {
           <div className="flex flex-col gap-3">
             <span className="text-sm font-semibold text-white">产品</span>
             <span className="text-[13px] text-[var(--text-muted)]">AI 聊天小程序</span>
+            <span className="text-[13px] text-[var(--text-muted)]">数字员工定制</span>
             <span className="text-[13px] text-[var(--text-muted)]">运营管理后台</span>
-            <span className="text-[13px] text-[var(--text-muted)]">数据看板</span>
           </div>
           <div className="flex flex-col gap-3">
             <span className="text-sm font-semibold text-white">解决方案</span>
             <Link href="/solutions" className="text-[13px] text-[var(--text-muted)] hover:text-white transition-colors">主播/MCN机构</Link>
-            <Link href="/solutions" className="text-[13px] text-[var(--text-muted)] hover:text-white transition-colors">品牌方</Link>
             <Link href="/solutions" className="text-[13px] text-[var(--text-muted)] hover:text-white transition-colors">私域运营</Link>
           </div>
           <div className="flex flex-col gap-3">
             <span className="text-sm font-semibold text-white">关于</span>
             <Link href="/about" className="text-[13px] text-[var(--text-muted)] hover:text-white transition-colors">关于我们</Link>
             <Link href="/contact" className="text-[13px] text-[var(--text-muted)] hover:text-white transition-colors">联系我们</Link>
-            <Link href="/join" className="text-[13px] text-[var(--text-muted)] hover:text-white transition-colors">加入我们</Link>
           </div>
         </div>
       </div>

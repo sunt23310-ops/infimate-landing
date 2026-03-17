@@ -1,14 +1,24 @@
+"use client";
+
+import { useState } from "react";
 import SubpageHeader from "@/components/SubpageHeader";
 import Badge from "@/components/Badge";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 
 const contactInfo = [
-  { icon: Mail, text: "contact@infimate.ai" },
-  { icon: Phone, text: "400-888-9999" },
-  { icon: MapPin, text: "上海市浦东新区陆家嘴金融中心" },
+  { icon: Mail, text: "support@infimate.ai" },
+  { icon: MapPin, text: "北京市朝阳区数字云科数字人基地" },
 ];
 
 export default function ContactPage() {
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+
+  const handleSubmit = () => {
+    const subject = encodeURIComponent(`[官网留言] 来自 ${form.name}`);
+    const body = encodeURIComponent(`姓名：${form.name}\n邮箱：${form.email}\n\n留言内容：\n${form.message}`);
+    window.open(`mailto:support@infimate.ai?subject=${subject}&body=${body}`);
+  };
+
   return (
     <main className="bg-[var(--bg-primary)] text-white min-h-screen">
       <SubpageHeader />
@@ -34,17 +44,17 @@ export default function ContactPage() {
           <h2 className="text-2xl font-semibold">给我们留言</h2>
           <div className="flex flex-col gap-2">
             <label className="text-sm text-[var(--text-secondary)]">您的姓名</label>
-            <input placeholder="请输入姓名" className="h-12 px-4 rounded-lg bg-[#0A0A1A] border border-white/10 text-white text-sm placeholder:text-[var(--text-muted)] outline-none focus:border-[var(--purple-primary)] transition-colors" />
+            <input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="请输入姓名" className="h-12 px-4 rounded-lg bg-[#0A0A1A] border border-white/10 text-white text-sm placeholder:text-[var(--text-muted)] outline-none focus:border-[var(--purple-primary)] transition-colors" />
           </div>
           <div className="flex flex-col gap-2">
             <label className="text-sm text-[var(--text-secondary)]">联系邮箱</label>
-            <input type="email" placeholder="请输入邮箱地址" className="h-12 px-4 rounded-lg bg-[#0A0A1A] border border-white/10 text-white text-sm placeholder:text-[var(--text-muted)] outline-none focus:border-[var(--purple-primary)] transition-colors" />
+            <input value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} type="email" placeholder="请输入邮箱地址" className="h-12 px-4 rounded-lg bg-[#0A0A1A] border border-white/10 text-white text-sm placeholder:text-[var(--text-muted)] outline-none focus:border-[var(--purple-primary)] transition-colors" />
           </div>
           <div className="flex flex-col gap-2">
             <label className="text-sm text-[var(--text-secondary)]">留言内容</label>
-            <textarea placeholder="请输入留言内容..." className="h-[120px] px-4 py-3 rounded-lg bg-[#0A0A1A] border border-white/10 text-white text-sm placeholder:text-[var(--text-muted)] outline-none focus:border-[var(--purple-primary)] transition-colors resize-none" />
+            <textarea value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} placeholder="请输入留言内容..." className="h-[120px] px-4 py-3 rounded-lg bg-[#0A0A1A] border border-white/10 text-white text-sm placeholder:text-[var(--text-muted)] outline-none focus:border-[var(--purple-primary)] transition-colors resize-none" />
           </div>
-          <button className="h-[52px] rounded-xl bg-gradient-to-b from-[var(--purple-primary)] to-[var(--purple-dark)] text-white text-base font-semibold hover:opacity-90 transition-opacity">
+          <button onClick={handleSubmit} className="h-[52px] rounded-xl bg-gradient-to-b from-[var(--purple-primary)] to-[var(--purple-dark)] text-white text-base font-semibold hover:opacity-90 transition-opacity">
             发送留言
           </button>
         </div>

@@ -12,7 +12,7 @@ const milestones = [
   { date: "2025 Q1", desc: "公司成立，核心团队组建完成" },
   { date: "2025 Q3", desc: "首个头部主播 AI Agent 上线" },
   { date: "2026 Q1", desc: "运营管理平台 V2.0 发布" },
-  { date: "2026 Q4", desc: "服务头部客户超 50 家" },
+  { date: "2026 Q2", desc: "服务头部客户超 15 家" },
 ];
 
 export default function AboutPage() {
