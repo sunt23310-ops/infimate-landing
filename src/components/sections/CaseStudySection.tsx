@@ -38,12 +38,6 @@ export default function CaseStudySection() {
           </div>
         </div>
 
-        {/* Trust logos */}
-        <div className="flex items-center gap-12">
-          {["Brand A", "Brand B", "Brand C", "Brand D", "Brand E"].map((name) => (
-            <span key={name} className="font-inter text-sm font-semibold text-[var(--text-muted)] tracking-wider">{name}</span>
-          ))}
-        </div>
       </div>
     </section>
   );
