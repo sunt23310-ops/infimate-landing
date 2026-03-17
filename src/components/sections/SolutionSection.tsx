@@ -24,11 +24,9 @@ export default function SolutionSection() {
         <div className="relative w-full h-[560px]">
           <div className="absolute w-[500px] h-[500px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(184,134,248,0.14)_0%,transparent_70%)] pointer-events-none glow-pulse" />
 
-          {/* Center orb with pulse — wrapper isolates positioning from animation */}
-          <div className="absolute left-1/2 top-[165px] -translate-x-1/2">
-            <div className="w-[150px] h-[150px] rounded-full bg-gradient-to-b from-[var(--purple-primary)] to-[var(--purple-dark)] flex items-center justify-center orb-pulse">
-              <Bot size={60} className="text-white" />
-            </div>
+          {/* Center orb with pulse — use calc() to avoid transform conflicts */}
+          <div className="absolute left-[calc(50%-75px)] top-[165px] w-[150px] h-[150px] rounded-full bg-gradient-to-b from-[var(--purple-primary)] to-[var(--purple-dark)] flex items-center justify-center orb-pulse">
+            <Bot size={60} className="text-white" />
           </div>
 
           {/* Connection lines */}
@@ -70,17 +68,15 @@ export default function SolutionSection() {
             </div>
           </div>
 
-          {/* Card 3 - Bottom center — wrapper for positioning, inner for animation */}
-          <div className="absolute left-1/2 -translate-x-1/2 top-[380px] w-[420px]">
-            <div className={`animate-on-scroll ${isVisible ? "is-visible" : ""}`} style={{ animationDelay: "0.45s" }}>
-              <div className="bg-[var(--bg-card)] rounded-2xl p-6 border border-[rgba(184,134,248,0.09)] shadow-[0_0_20px_0_rgba(184,134,248,0.07)] card-hover">
-                <div className="flex flex-col gap-3">
-                  <div className="w-11 h-11 rounded-[10px] bg-[rgba(184,134,248,0.08)] flex items-center justify-center">
-                    <Settings size={22} className="text-[var(--purple-primary)]" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-white">{solutions[2].title}</h3>
-                  <p className="text-[13px] text-[var(--text-muted)] leading-relaxed">{solutions[2].desc}</p>
+          {/* Card 3 - Bottom center — use calc() to avoid transform conflicts */}
+          <div className={`absolute left-[calc(50%-210px)] top-[380px] w-[420px] animate-on-scroll ${isVisible ? "is-visible" : ""}`} style={{ animationDelay: "0.45s" }}>
+            <div className="bg-[var(--bg-card)] rounded-2xl p-6 border border-[rgba(184,134,248,0.09)] shadow-[0_0_20px_0_rgba(184,134,248,0.07)] card-hover">
+              <div className="flex flex-col gap-3">
+                <div className="w-11 h-11 rounded-[10px] bg-[rgba(184,134,248,0.08)] flex items-center justify-center">
+                  <Settings size={22} className="text-[var(--purple-primary)]" />
                 </div>
+                <h3 className="text-lg font-semibold text-white">{solutions[2].title}</h3>
+                <p className="text-[13px] text-[var(--text-muted)] leading-relaxed">{solutions[2].desc}</p>
               </div>
             </div>
           </div>
